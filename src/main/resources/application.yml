@@ -1,0 +1,23 @@
+logging:
+    level: error
+    level.org.springframework.data: debug
+server:
+    port: 8081
+spring:
+    data:
+        mongodb:
+            database: campanha
+            host: localhost
+            port: 27017
+    application:
+       name: campanha-service
+    freemarker:
+       enabled: false   
+    thymeleaf:
+       cache: false
+       prefix: classpath:/templates/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
