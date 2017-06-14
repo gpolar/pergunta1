@@ -1,6 +1,7 @@
 package com.pergunta1.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.pergunta1.domain.AssociacaoDomain;
 import com.pergunta1.entity.SocioCampanhaEntity;
+import com.pergunta1.exception.http.UnprocessableEntity;
 import com.pergunta1.repository.AssociacaoRepository;
+import com.pergunta1.repository.CampanhaRepository;
 import com.pergunta1.service.AssociacaoService;
 
 /**
@@ -20,26 +23,31 @@ import com.pergunta1.service.AssociacaoService;
 @Service
 public class AssociacaoServiceImpl implements AssociacaoService {
 
-	private final AssociacaoRepository repository;
+	private final AssociacaoRepository associacaoRepository;
+	private final CampanhaRepository campanhaRepository;
 
 	@Autowired
-	AssociacaoServiceImpl(AssociacaoRepository repository) {
-		this.repository = repository;
+	AssociacaoServiceImpl(AssociacaoRepository associacaoRepository,CampanhaRepository campanhaRepository) {
+		this.associacaoRepository = associacaoRepository;
+		this.campanhaRepository = campanhaRepository;
 	}
 
 	@Override
 	public AssociacaoDomain create(AssociacaoDomain associacao) {
-		SocioCampanhaEntity socioCampanhaEntity = new SocioCampanhaEntity();
-		socioCampanhaEntity.setCampanhaId(associacao.getCampanhaId());
-		socioCampanhaEntity.setSocioId(associacao.getSocioId());
+		if(Objects.nonNull(campanhaRepository.findOne(associacao.getCampanhaId()))){
+			SocioCampanhaEntity socioCampanhaEntity = new SocioCampanhaEntity();
+			socioCampanhaEntity.setCampanhaId(associacao.getCampanhaId());
+			socioCampanhaEntity.setSocioId(associacao.getSocioId());
 
-		socioCampanhaEntity = repository.save(socioCampanhaEntity);
-		return convertToDomain(socioCampanhaEntity);
+			socioCampanhaEntity = associacaoRepository.save(socioCampanhaEntity);
+			return convertToDomain(socioCampanhaEntity);
+		}
+		throw new UnprocessableEntity("Associação tem dados invalidos");
 	}
 
 	@Override
 	public List<AssociacaoDomain> findBySocioId(String socioId) {
-		return repository.findBySocioId(socioId).stream().map(x -> convertToDomain(x)).collect(Collectors.toList());
+		return associacaoRepository.findBySocioId(socioId).stream().map(x -> convertToDomain(x)).collect(Collectors.toList());
 	}
 	
 	private AssociacaoDomain convertToDomain(SocioCampanhaEntity entity) {

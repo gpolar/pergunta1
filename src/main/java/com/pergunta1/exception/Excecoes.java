@@ -4,9 +4,12 @@ import javax.validation.ConstraintViolationException;
 
 import org.springframework.hateoas.VndErrors.VndError;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.pergunta1.exception.http.ExcecoesHttp;
 
 /**
  * Esta classe vai ter as possiveis exeções que poderiam acontecer ao consumir
@@ -35,6 +38,12 @@ public class Excecoes {
 		return criarMensagem(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
 	}
 
+	/*Metodo para mostrar mais amigavel alguns erros http*/
+	@ExceptionHandler(ExcecoesHttp.class)
+	public ResponseEntity<?> excecoesHttp(ExcecoesHttp exception) {
+		return new ResponseEntity<>(criarMensagem(exception.getStatus().value(), exception.getMessage()),exception.getStatus());
+	}
+	
 	private VndError criarMensagem(Integer status, String mensagem) {
 		return new VndError(status.toString(), mensagem);
 
