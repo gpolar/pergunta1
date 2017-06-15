@@ -67,8 +67,9 @@ public class CampanhaServiceImpl implements CampanhaService {
 		CampanhaEntity campanhaEntity = repository.findOne(id);
 		if (Objects.nonNull(campanhaEntity)) {
 			repository.delete(id);
+		}else{
+			throw new UnprocessableEntity("Id invalido");
 		}
-		throw new UnprocessableEntity("Id invalido");
 	}
 
 	@Override

@@ -50,12 +50,12 @@ public class AssociacaoServiceImpl implements AssociacaoService {
 				.collect(Collectors.toList());
 	}
 
-	private AssociacaoDomain convertToDomain(SocioCampanhaEntity entity) {
+	public AssociacaoDomain convertToDomain(SocioCampanhaEntity entity) {
 		AssociacaoDomain domain = new AssociacaoDomain(entity.getCampanhaId(), entity.getSocioId());
 		return domain;
 	}
 	
-	private Boolean existeSocioCampanha(AssociacaoDomain associacao){
+	public Boolean existeSocioCampanha(AssociacaoDomain associacao){
 		return Objects.isNull(associacaoRepository
 		.findByCampanhaIdAndSocioId(associacao.getCampanhaId(), associacao.getSocioId()).orElse(null)) ? false : true;
 	}
