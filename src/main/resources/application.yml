@@ -3,7 +3,7 @@ logging:
     level.org.springframework.data: debug
     file: pergunta1.log
 server:
-    port: 8083
+    port: 8081
 spring:
     data:
         mongodb:
