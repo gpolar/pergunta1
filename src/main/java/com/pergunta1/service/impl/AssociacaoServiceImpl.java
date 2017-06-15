@@ -15,8 +15,7 @@ import com.pergunta1.repository.CampanhaRepository;
 import com.pergunta1.service.AssociacaoService;
 
 /**
- * Esta classe tem a logica dos metodos implementados em
- * AssociacaoService
+ * Esta classe tem a logica dos metodos implementados em AssociacaoService
  * 
  * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
  */
@@ -27,14 +26,14 @@ public class AssociacaoServiceImpl implements AssociacaoService {
 	private final CampanhaRepository campanhaRepository;
 
 	@Autowired
-	AssociacaoServiceImpl(AssociacaoRepository associacaoRepository,CampanhaRepository campanhaRepository) {
+	AssociacaoServiceImpl(AssociacaoRepository associacaoRepository, CampanhaRepository campanhaRepository) {
 		this.associacaoRepository = associacaoRepository;
 		this.campanhaRepository = campanhaRepository;
 	}
 
 	@Override
 	public AssociacaoDomain create(AssociacaoDomain associacao) {
-		if(Objects.nonNull(campanhaRepository.findOne(associacao.getCampanhaId()))){
+		if (Objects.nonNull(campanhaRepository.findOne(associacao.getCampanhaId())) && !existeSocioCampanha(associacao)) {
 			SocioCampanhaEntity socioCampanhaEntity = new SocioCampanhaEntity();
 			socioCampanhaEntity.setCampanhaId(associacao.getCampanhaId());
 			socioCampanhaEntity.setSocioId(associacao.getSocioId());
@@ -47,12 +46,18 @@ public class AssociacaoServiceImpl implements AssociacaoService {
 
 	@Override
 	public List<AssociacaoDomain> findBySocioId(String socioId) {
-		return associacaoRepository.findBySocioId(socioId).stream().map(x -> convertToDomain(x)).collect(Collectors.toList());
+		return associacaoRepository.findBySocioId(socioId).stream().map(x -> convertToDomain(x))
+				.collect(Collectors.toList());
 	}
-	
+
 	private AssociacaoDomain convertToDomain(SocioCampanhaEntity entity) {
 		AssociacaoDomain domain = new AssociacaoDomain(entity.getCampanhaId(), entity.getSocioId());
 		return domain;
+	}
+	
+	private Boolean existeSocioCampanha(AssociacaoDomain associacao){
+		return Objects.isNull(associacaoRepository
+		.findByCampanhaIdAndSocioId(associacao.getCampanhaId(), associacao.getSocioId()).orElse(null)) ? false : true;
 	}
 
 }

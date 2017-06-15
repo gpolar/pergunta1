@@ -1,6 +1,7 @@
 package com.pergunta1.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -16,4 +17,5 @@ public interface AssociacaoRepository extends MongoRepository<SocioCampanhaEntit
 	
 	List<SocioCampanhaEntity> findBySocioId(String idSocio);
 	
+	Optional<SocioCampanhaEntity> findByCampanhaIdAndSocioId(String campanhaId,String socioId);
 }

@@ -15,7 +15,7 @@ O presente projeto é um microserviço que tem o crud de campanhas e associacao
 Os requisitos Não funcionais 
 
 - Para gerenciar os erro de retorno foi utilizado o vnd erro
-- Para medir as 100 requisições por segundo foi utilizado o JMeter o arquivo fica na pasta resources
+- Para medir as 100 requisições por segundo foi utilizado o JMeter o arquivo fica na pasta resources do projeto pergunta-1e2-zuul
 
 # Porque microservices
 
