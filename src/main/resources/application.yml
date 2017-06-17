@@ -8,7 +8,7 @@ spring:
     data:
         mongodb:
             database: campanha
-            host: localhost
+            host: 104.198.77.67 //utilizar localhost para local
             port: 27017
     application:
        name: campanha-service
@@ -21,4 +21,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka
