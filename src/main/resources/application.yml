@@ -8,8 +8,8 @@ spring:
     data:
         mongodb:
             database: campanha
-            host: 104.198.77.67 //utilizar localhost para local
-            port: 27017
+            host: 104.198.77.67
+            port: 27018
     application:
        name: campanha-service
     freemarker:

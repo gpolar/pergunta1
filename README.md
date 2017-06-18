@@ -21,8 +21,10 @@ Os requisitos Não funcionais
 
   Porque ajuda a ter um maior controle dos grupos de negocio e manter as funcionalidades deles distribuidas ajudando a independencia dos mesmos, assim o principal de tudo evitando alguma eventual queda de sistema, porque ao ser distribuidos um microservice pode cair mas os outros continuam funcionando, asssim as outras areas de um negocio x, podem continuar funcionando, também ajuda muito agora no tempo onde tudo esta sendo subido nos diferentes servidores cloud(Amazon,Google Cloud,etc). E só para dar uma vantagem a mais( das muitas que tem), cada microservice pode ter um banco, linguagem de programação, etc diferente, porque a comunicação pode ser por Rest, onde o formato json é unico para qualquer tipo de tecnologica.
 
-P.S. Adeia que cada microservice tenha um banco mas para este teste, a pergunta1 e pergunta2 foi colocado no mesmo banco( isso faz a gente só simular a parte dos endereços url diferentes)
+P.S. Adeia que cada microservice tenha um server de banco, para isso para simular foi criado um CONTAINER no DOCKER subido no cloud da google 
   
+3181a4f48b34        tutum/mongodb       "/run.sh"           3 minutes ago       Up 3 minutes        28017/tcp, 0.0.0.0:27018->27017/tcp
+
 # Execução
 Para subir o projeto num algum IDE é executar o arquivo Application.java
 Ele vai pegar a seguinte configuração
@@ -36,8 +38,8 @@ spring:
     data:
         mongodb:
             database: campanha
-            host: localhost
-            port: 27017
+            host: 104.198.77.67 // Mudar para localhost se for trabalhar local
+            port: 27018 // cambiar para 27017 se for localhost(porta defaul)
     application:
        name: campanha-service //o alias com que vai ser registrado em eureka
     freemarker:
