@@ -51,7 +51,7 @@ public class AssociacaoServiceImpl implements AssociacaoService {
 	}
 
 	public AssociacaoDomain convertToDomain(SocioCampanhaEntity entity) {
-		AssociacaoDomain domain = new AssociacaoDomain(entity.getCampanhaId(), entity.getSocioId());
+		AssociacaoDomain domain = new AssociacaoDomain(entity.getSocioId(), entity.getCampanhaId());
 		return domain;
 	}
 	
