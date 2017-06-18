@@ -12,7 +12,7 @@ import com.pergunta1.convert.ParseDeserializer;
  * Esta classe tem o CampanhaDomain que serve de parse entre a entidade e o
  * cliente
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 public class CampanhaDomain implements Serializable {
 

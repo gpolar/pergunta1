@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Esta classe inicia o Microserviço de Campanhas
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @Configuration
 @SpringBootApplication

@@ -20,7 +20,7 @@ import com.pergunta1.service.CampanhaService;
 /**
  * Esta classe tem a logica dos metodos implementados em CampanhaService
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @Service
 public class CampanhaServiceImpl implements CampanhaService {

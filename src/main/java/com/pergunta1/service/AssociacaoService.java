@@ -8,7 +8,7 @@ import com.pergunta1.domain.AssociacaoDomain;
  * Esta classe contem a interface de serviço relacionado com os procedimentos de
  * associação
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 public interface AssociacaoService {
 

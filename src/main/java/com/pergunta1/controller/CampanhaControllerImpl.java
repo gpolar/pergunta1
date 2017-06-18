@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiResponses;
 /**
  * Esta classe implementa os end-point
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @RestController
 @RequestMapping("/campanha")

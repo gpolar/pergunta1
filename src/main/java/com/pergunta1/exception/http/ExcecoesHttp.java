@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * Esta classe vai ter as possiveis exeções que poderiam acontecer ao consumir
  * um serviço retornando todo no padrão application/vnd.error+json
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @RestControllerAdvice
 public class ExcecoesHttp extends RuntimeException {

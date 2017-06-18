@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Esta classe tem o AssociacaoDomain que serve de parse entre a entidade e o
  * cliente
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 public class AssociacaoDomain implements Serializable {
 

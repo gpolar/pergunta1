@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Esta classe inicia a configuração do Swagger para ter os serviços rest
  * documentados
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @Configuration
 @EnableSwagger2
@@ -28,7 +28,7 @@ public class SwaggerConfiguration {
 	}
 
 	private ApiInfo apiInfo() {
-		Contact contact = new Contact("Gustavo Polar", "http://www.gustavopolarsa.com", "contato@gustavopolarsa.com");
+		Contact contact = new Contact("Gustavo Polar", "http://www.gustavopolarsa.com", "contact@gustavopolarsa.com");
 
 		return new ApiInfoBuilder().title("EndPoint rest para a Crud de campanha")
 				.description("serviços para consultar campanhas").termsOfServiceUrl("http://www.gustavopolarsa.com")

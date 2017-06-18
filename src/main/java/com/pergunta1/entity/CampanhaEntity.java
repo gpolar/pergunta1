@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Esta classe tem o CampanhaEntity que é a entidade que vai persistir no banco
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @Document(collection = "campanha")
 public class CampanhaEntity {

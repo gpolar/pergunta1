@@ -12,7 +12,7 @@ import com.pergunta1.entity.CampanhaEntity;
  * Esta classe contem a interface da entidade CampanhaEntity para persistir no
  * banco de dados
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 public interface CampanhaRepository extends MongoRepository<CampanhaEntity, String> {
 

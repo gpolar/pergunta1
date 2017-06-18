@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 /**
  * Esta classe implementa serialização e deserialização do LocalDate
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 @SuppressWarnings("serial")
 public class ParseDeserializer extends StdDeserializer<LocalDate> {

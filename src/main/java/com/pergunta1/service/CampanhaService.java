@@ -9,7 +9,7 @@ import com.pergunta1.domain.CampanhaDomain;
  * Esta classe contem a interface de serviço relacionado com os procedimentos da
  * CRUD de campanhas
  * 
- * @author: Gustavo Polar gpolars@gmail.com, contato@gustavopolarsa.com
+ * @author: Gustavo Polar gpolars@gmail.com, contact@gustavopolarsa.com
  */
 public interface CampanhaService {
 
